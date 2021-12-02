@@ -2,7 +2,7 @@ public class Dollar {
     /**
         Class for handling dollar currency.
      */
-    public int amount;
+    public int amount = 10;
 
     public Dollar(int amount) {
 
