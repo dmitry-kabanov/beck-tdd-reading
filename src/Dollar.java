@@ -11,8 +11,9 @@ public class Dollar {
     /**
      * Multiply the amount by the multiplier.
      * @param multiplier Multiplier of the base amount
+     * @return new Dollar object with multiplied amount
      */
-    public void times(int multiplier) {
-        this.amount *= multiplier;
+    public Dollar times(int multiplier) {
+        return new Dollar(this.amount * multiplier);
     }
 }
