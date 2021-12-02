@@ -2,10 +2,10 @@ public class Dollar {
     /**
         Class for handling dollar currency.
      */
-    public int amount = 10;
+    public int amount;
 
     public Dollar(int amount) {
-
+        this.amount = amount;
     }
 
     /**
@@ -13,6 +13,6 @@ public class Dollar {
      * @param multiplier Multiplier of the base amount
      */
     public void times(int multiplier) {
-
+        this.amount *= multiplier;
     }
 }
