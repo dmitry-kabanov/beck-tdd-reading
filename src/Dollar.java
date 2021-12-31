@@ -1,9 +1,4 @@
-public class Dollar {
-    /**
-        Class for handling dollar currency.
-     */
-    private int amount;
-
+public class Dollar extends Money {
     public Dollar(int amount) {
         this.amount = amount;
     }
@@ -15,10 +10,5 @@ public class Dollar {
      */
     public Dollar times(int multiplier) {
         return new Dollar(this.amount * multiplier);
-    }
-
-    public boolean equals(Object obj) {
-        Dollar dollar = (Dollar) obj;
-        return amount == dollar.amount;
     }
 }
