@@ -10,6 +10,6 @@ public class Dollar extends Money {
      * @return new Dollar object with multiplied amount
      */
     public Money times(int multiplier) {
-        return Money.dollar(this.amount * multiplier);
+        return new Dollar(this.amount * multiplier, currency);
     }
 }
