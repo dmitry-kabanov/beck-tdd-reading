@@ -7,8 +7,8 @@ public class TestMoney {
     public void testEquality() {
         assertEquals(Money.dollar(5), new Dollar(5));
         assertNotEquals(Money.dollar(5), new Dollar(6));
-        assertEquals(Money.franc(5), new Franc(5));
-        assertNotEquals(Money.franc(5), new Franc(6));
+        assertEquals(Money.franc(5), Money.franc(5));
+        assertNotEquals(Money.franc(5), Money.franc(6));
         assertFalse(Money.franc(10).equals(Money.dollar(10)));
     }
 
