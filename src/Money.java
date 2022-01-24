@@ -1,5 +1,8 @@
 public abstract class Money {
+
     protected int amount;
+
+    protected String currency;
 
     public boolean equals(Object obj) {
         Money money = (Money) obj;
@@ -17,5 +20,7 @@ public abstract class Money {
 
     abstract Money times(int multiplier);
 
-    abstract String currency();
+    String currency() {
+        return this.currency;
+    }
 }
