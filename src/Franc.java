@@ -10,6 +10,6 @@ public class Franc extends Money {
      * @return new Franc object with multiplied amount
      */
     public Money times(int multiplier) {
-        return new Franc(this.amount * multiplier, currency);
+        return new Money(this.amount * multiplier, currency);
     }
 }
