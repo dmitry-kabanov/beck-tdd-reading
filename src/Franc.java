@@ -1,7 +1,10 @@
 public class Franc extends Money {
 
+    private String currency;
+
     public Franc(int amount) {
         this.amount = amount;
+        this.currency = "CHF";
     }
 
     /**
@@ -15,6 +18,6 @@ public class Franc extends Money {
 
     @Override
     String currency() {
-        return "CHF";
+        return currency;
     }
 }
