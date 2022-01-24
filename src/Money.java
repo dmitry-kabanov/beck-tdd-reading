@@ -23,8 +23,13 @@ public class Money {
         return new Franc(amount, "CHF");
     }
 
-    Money times(int multiplier) {
-        return null;
+    /**
+     * Multiply the amount by the multiplier.
+     * @param multiplier Multiplier of the base amount
+     * @return new Dollar object with multiplied amount
+     */
+    public Money times(int multiplier) {
+        return new Money(this.amount * multiplier, currency);
     }
 
     String currency() {
