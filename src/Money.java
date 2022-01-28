@@ -16,17 +16,17 @@ public class Money {
     }
 
     static Money dollar(int amount) {
-        return new Dollar(amount, "USD");
+        return new Money(amount, "USD");
     }
 
     static Money franc(int amount) {
-        return new Franc(amount, "CHF");
+        return new Money(amount, "CHF");
     }
 
     /**
      * Multiply the amount by the multiplier.
      * @param multiplier Multiplier of the base amount
-     * @return new Dollar object with multiplied amount
+     * @return new Money object with multiplied amount
      */
     public Money times(int multiplier) {
         return new Money(this.amount * multiplier, currency);
