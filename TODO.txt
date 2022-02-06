@@ -5,4 +5,4 @@
 - [x] Reduce Money with conversion
 - [x] Reduce(Bank, String)
 - [x] Sum.plus
-- [ ] Expression.times
+- [x] Expression.times

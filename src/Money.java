@@ -29,7 +29,7 @@ public class Money implements Expression {
      * @return new Money object with multiplied amount
      */
     public Money times(int multiplier) {
-        return new Money(this.amount * multiplier, currency);
+        return new Money(amount * multiplier, currency);
     }
 
     public Expression plus(Expression addend) {
