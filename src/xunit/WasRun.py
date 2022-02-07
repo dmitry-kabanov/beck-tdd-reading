@@ -1,11 +1,10 @@
-class WasRun:
+from xunit.testcase import TestCase
+
+class WasRun(TestCase):
     def __init__(self, name):
-        self.name = name
+        super().__init__(name)
         self.wasRun = None
 
     def testmethod(self):
         self.wasRun = 1
 
-    def run(self):
-        method = getattr(self, self.name)
-        method()
