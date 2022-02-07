@@ -1,4 +1,4 @@
-from xunit.WasRun import WasRun
+from xunit.wasrun import WasRun
 
 test = WasRun("testmethod")
 print(test.wasRun)
