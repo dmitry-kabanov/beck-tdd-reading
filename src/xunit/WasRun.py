@@ -7,4 +7,5 @@ class WasRun:
         self.wasRun = 1
 
     def run(self):
-        self.testmethod()
+        method = getattr(self, self.name)
+        method()
