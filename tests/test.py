@@ -2,5 +2,5 @@ from xunit.WasRun import WasRun
 
 test = WasRun("testmethod")
 print(test.wasRun)
-test.testmethod()
+test.run()
 print(test.wasRun)
