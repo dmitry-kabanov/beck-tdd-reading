@@ -13,3 +13,6 @@ class WasRun(TestCase):
         self.wasRun = 1
         self.log += "testmethod "
 
+    def tearDown(self):
+        self.log += "tearDown "
+
