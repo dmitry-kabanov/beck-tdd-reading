@@ -11,7 +11,12 @@ class TestCaseTest(TestCase):
 
     def test_setup(self):
         self.test.run()
-        assert self.test.wasSetUp
+        assert self.test.log == "setUp testmethod "
+
+    def test_template_method(self):
+        test = WasRun("testmethod")
+        test.run()
+        assert test.log == "setUp testmethod "
 
 if __name__ == "__main__":
     TestCaseTest("test_running").run()
