@@ -2,15 +2,16 @@ from xunit.testcase import TestCase
 from xunit.wasrun import WasRun
 
 class TestCaseTest(TestCase):
+    def setUp(self):
+        self.test = WasRun("testmethod")
+
     def test_running(self):
-        test = WasRun("testmethod")
-        test.run()
-        assert test.wasRun
+        self.test.run()
+        assert self.test.wasRun
 
     def test_setup(self):
-        test = WasRun("testmethod")
-        test.run()
-        assert test.wasSetUp
+        self.test.run()
+        assert self.test.wasSetUp
 
 if __name__ == "__main__":
     TestCaseTest("test_running").run()
