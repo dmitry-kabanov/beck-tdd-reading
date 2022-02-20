@@ -7,8 +7,7 @@ class TestCase:
     def setUp(self):
         pass
 
-    def run(self):
-        result = TestResult()
+    def run(self, result: TestResult):
         result.testStarted()
         self.setUp()
         try:
