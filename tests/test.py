@@ -7,35 +7,31 @@ from xunit.testsuite import TestSuite
 class TestCaseTest(TestCase):
     def setUp(self):
         self.test = WasRun("testmethod")
+        self.result = TestResult()
 
     def test_running(self):
-        result = TestResult()
-        self.test.run(result)
+        self.test.run(self.result)
         assert self.test.wasRun
 
     def test_template_method(self):
         test = WasRun("testmethod")
-        result = TestResult()
-        test.run(result)
+        test.run(self.result)
         assert test.log == "setUp testmethod tearDown "
 
     def test_result(self):
         test = WasRun("testmethod")
-        result = TestResult()
-        test.run(result)
-        assert(result.summary() == "1 run, 0 failed")
+        test.run(self.result)
+        assert(self.result.summary() == "1 run, 0 failed")
 
     def test_failed_result(self):
         test = WasRun("test_broken_method")
-        result = TestResult()
-        test.run(result)
-        assert(result.summary() == "1 run, 1 failed")
+        test.run(self.result)
+        assert(self.result.summary() == "1 run, 1 failed")
 
     def test_failed_result_formatting(self):
-        result = TestResult()
-        result.testStarted()
-        result.testFailed()
-        assert(result.summary() == "1 run, 1 failed")
+        self.result.testStarted()
+        self.result.testFailed()
+        assert(self.result.summary() == "1 run, 1 failed")
 
     def testSuite(self):
         suite = TestSuite()
