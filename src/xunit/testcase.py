@@ -9,7 +9,11 @@ class TestCase:
 
     def run(self, result: TestResult):
         result.testStarted()
-        self.setUp()
+        try:
+            self.setUp()
+        except:
+            result.setUpErrored()
+            return result
         try:
             method = getattr(self, self.name)
             method()

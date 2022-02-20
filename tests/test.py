@@ -2,6 +2,7 @@ from xunit.testcase import TestCase
 from xunit.wasrun import WasRun
 from xunit.testresult import TestResult
 from xunit.testsuite import TestSuite
+from xunit.testcasewithbrokensetup import TestCaseWithBrokenSetup
 
 
 class TestCaseTest(TestCase):
@@ -41,6 +42,16 @@ class TestCaseTest(TestCase):
         suite.run(result)
         assert(result.summary() == "2 run, 1 failed")
 
+    def test_setup_fails(self):
+        self.result.testStarted()
+        self.result.setUpErrored()
+        assert(self.result.summary() == "1 run, 0 failed, 1 errored")
+
+    def test_setup_fails_real_impl(self):
+        test = TestCaseWithBrokenSetup("test_method")
+        test.run(self.result)
+        assert(self.result.summary() == "1 run, 0 failed, 1 errored")
+
 
 if __name__ == "__main__":
     suite = TestSuite()
@@ -49,6 +60,8 @@ if __name__ == "__main__":
     suite.add(TestCaseTest("test_result"))
     suite.add(TestCaseTest("test_failed_result"))
     suite.add(TestCaseTest("test_failed_result_formatting"))
+    suite.add(TestCaseTest("test_setup_fails"))
+    suite.add(TestCaseTest("test_setup_fails_real_impl"))
     result = TestResult()
     suite.run(result)
     print(result.summary())

@@ -1,13 +1,22 @@
 class TestResult:
     def __init__(self):
         self.runCount = 0
-        self.errorCount = 0
+        self.fails = 0
+        self.errors = 0
 
     def testStarted(self):
         self.runCount += 1
 
     def testFailed(self):
-        self.errorCount += 1
+        self.fails += 1
+
+    def setUpErrored(self):
+        self.errors += 1
 
     def summary(self):
-        return "%d run, %d failed" % (self.runCount, self.errorCount)
+        message = "%d run, %d failed" % (self.runCount, self.fails)
+
+        if self.errors:
+            message += ", %d errored" % self.errors
+
+        return message
