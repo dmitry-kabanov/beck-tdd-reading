@@ -1,5 +1,7 @@
 from xunit.testcase import TestCase
 from xunit.wasrun import WasRun
+from xunit.testresult import TestResult
+
 
 class TestCaseTest(TestCase):
     def setUp(self):
@@ -19,7 +21,21 @@ class TestCaseTest(TestCase):
         result = test.run()
         assert(result.summary() == "1 run, 0 failed")
 
+    def test_failed_result(self):
+        test = WasRun("test_broken_method")
+        result = test.run()
+        assert(result.summary() == "1 run, 1 failed")
+
+    def test_failed_result_formatting(self):
+        result = TestResult()
+        result.testStarted()
+        result.testFailed()
+        assert(result.summary() == "1 run, 1 failed")
+
+
 if __name__ == "__main__":
     TestCaseTest("test_running").run()
     TestCaseTest("test_template_method").run()
     TestCaseTest("test_result").run()
+    #TestCaseTest("test_failed_result").run()
+    TestCaseTest("test_failed_result_formatting").run()
